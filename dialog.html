@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      dialog {
+        top: 100px;
+      }
+
+      :modal {
+        /*:modal은 모달 상태의 대화상자 박스에 대한 선택자이다. 비모달 대화상자는 dialog 태그 선택자로 정의가 가능하다. */
+        border: none;
+        padding: 0;
+      }
+
+      dialog::backdrop {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <dialog open>
+      <div>hi</div>
+    </dialog> -->
+
+    <button id="open">dialog 호출!!</button>
+    <button>테스트!</button>
+    <dialog id="dialog">
+      <h1>모달제목</h1>
+      <div>모달 내용!</div>
+      <div>
+        <button id="close">닫기</button>
+        <button>닫기</button>
+        <button>닫기</button>
+      </div>
+    </dialog>
+    <dialog id="dialog2">
+      <h1>모달제목</h1>
+      <div>모달 내용!2222</div>
+      <div>
+        <button id="close2">닫기</button>
+        <button>닫기</button>
+        <button>닫기</button>
+      </div>
+    </dialog>
+    <script>
+      const dialog = document.querySelector("#dialog");
+      const dialog2 = document.querySelector("#dialog2");
+
+      const btnOpen = document.querySelector("#open");
+      btnOpen.addEventListener("click", () => {
+        dialog.show();
+        dialog2.showModal();
+      });
+
+      const btnClose = document.querySelector("#close");
+      btnClose.addEventListener("click", () => {
+        dialog.close();
+      });
+
+      const btnClose2 = document.querySelector("#close2");
+      btnClose2.addEventListener("click", () => {
+        dialog2.close();
+      });
+    </script>
+  </body>
+</html>
